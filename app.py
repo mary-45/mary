@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 from PIL import Image
 import plotly.express as px
 
@@ -144,6 +143,7 @@ elif page == "Contact":
     st.write("You can reach us at:")
     st.write("- 📧 Email: contact@cidata.com")
     st.write("- 📞 Phone: +225 07 00 00 00 00")
+
 
 
 
