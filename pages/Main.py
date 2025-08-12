@@ -34,7 +34,12 @@ def home():
     st.write("This is the home page of the CIDATA Dashboard. Use the sidebar to navigate through different sections.")
 st.sidebar.image("logo.jpeg.jpg", width=150)
 st.sidebar.title("Navigation")
-df=pd.read_csv('copie de PAIEMENT_WAVE(1).csv', sep=',')
+df = pd.read_csv(
+    "Copie de PAIEMENT_WAVE(1).csv",
+    sep=",",                # le séparateur semble être une virgule
+    encoding="utf-8-sig",   # pour éviter les caractères invisibles
+    dtype=str
+)
 st.dataframe(df)
 import streamlit as st
 
