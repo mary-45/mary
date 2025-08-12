@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from PIL import Image
+import plotly.express as px
 
 from streamlit_option_menu import option_menu
 
@@ -42,10 +43,16 @@ with st.sidebar:
     )
 
 # --- Load data (une seule fois) ---
-df = pd.read_csv("copie de PAIEMENT_WAVE(1).csv", sep=",")
-image = Image.open('logo.jpeg.jpg')
+df = pd.read_csv(
+    "Copie de PAIEMENT_WAVE(1).csv",
+    sep=",",                # le séparateur semble être une virgule
+    encoding="utf-8-sig",   # pour éviter les caractères invisibles
+    dtype=str               # garde les données brutes pour nettoyage
+)
+
 col1, col2 = st.columns([1, 2])
 with col1:
+    image = Image.open("logo.jpeg.jpg")
     st.image(image, width=200)
 with col2:
     st.title("Dashboard CIDATA - Payment by Wave")
@@ -137,3 +144,5 @@ elif page == "Contact":
     st.write("You can reach us at:")
     st.write("- 📧 Email: contact@cidata.com")
     st.write("- 📞 Phone: +225 07 00 00 00 00")
+
+
